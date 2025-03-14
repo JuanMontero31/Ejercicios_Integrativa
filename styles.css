@@ -1,0 +1,346 @@
+body {
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+header {
+    background: black;
+    padding: 2px 0;
+}
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+    position: relative;
+}
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    text-align: left;
+}
+nav ul li a:hover {
+    color: #b7b3b3;
+}
+
+.dropdown {
+    display: none;
+    position: absolute;
+    background: white;
+    box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
+    min-width: 120px;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+}
+.dropdown a {
+    display: block;
+    padding: 10px;
+    color: black;
+    text-decoration: none;
+}
+.dropdown a:hover {
+    background: #f4f4f4;
+}
+nav ul li:hover .dropdown {
+    display: block; 
+}
+.banner {
+    background: url('banner.jpg') no-repeat center center/cover;
+    height: 90vh;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    
+}
+
+.banner .text p{
+    color: #fff;
+    
+}
+
+.band-info h2{
+    text-align: center;
+}
+.band-info p{
+    text-align: center;
+    padding: 20px;
+    font-style: italic;
+}
+.band-info .parrafo p{
+    text-align: justify;
+    padding: 10px;
+    padding-left: 40px;
+    font-style: normal;
+}
+
+.band-info, .tour-dates, .contact {
+    padding: 50px 300px;
+}
+.playeras {
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+    padding-top: 10px;
+}
+.playeras p{
+    font-style: normal;
+}
+.member img {
+    width: 150px;
+    border-radius: 50%;
+}
+
+.member p{
+    text-align: center;
+    font-weight: bold;
+}
+.tour-dates{
+    background-color: black;
+}
+.table {
+    background: #fff;
+    width: 100%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    font-size: 18px;
+    text-align: left;
+    margin-top: 50px;
+}
+
+.table td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.soldout-label {
+    background-color: red;
+    color: white;
+    padding: 2px 2px;
+    margin-left: 20px;
+    font-size: 12px;
+}
+
+.tour-dates h2{
+    color: #fff;
+    text-align: center;
+}
+
+.tour-dates p{
+    color: #fff;
+    text-align: center;
+}
+
+.tour-dates img{
+    width: 100%;
+}
+.tour-dates .dates {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 80px;
+}
+
+.tour-dates .dates p{
+    color: #000;
+    text-align: left;
+}
+.event {
+    background: #f4f4f4;
+}
+
+.event h3, p, .btne{
+    margin: 20px;
+    color: #000;
+    text-align: left;
+}
+
+.event .btne{
+    background: #000;
+    color: #fff;
+    border-radius: 2px;
+    padding: 15px;
+}
+.contact {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #fff;
+}
+.contact p{
+    text-align: center;
+    font-style: italic;
+}
+.contact-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 800px;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+
+.contact-info {
+    flex: 1;
+    text-align: left;
+    padding-right: 20px;
+}
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.contact-info p {
+    margin: 10px 0;
+    text-align: left;
+    font-style: normal;
+}
+
+.contact-info .img-contact{
+    width: 20px;
+    height: 20px;
+}
+
+form {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.input-group {
+    display: flex;
+    gap: 10px;
+}
+
+
+input, textarea {
+    
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+}
+
+textarea{
+    width: 94%;
+    padding: 5px;
+}
+
+.btnf {
+    padding: 20px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 1px;
+    cursor: pointer;
+    position: relative;
+    width: 80px;
+    left: 300px;
+}
+
+.btnf:hover {
+    background-color: rgb(255, 254, 254);
+    color: #000;
+    border:1px solid #000;
+}
+
+.mapa img{
+    width: 100%;
+}
+
+footer{
+    padding: 30px;
+}
+footer p{
+    text-align: center;
+    align-items: center;
+}
+
+.img-footer{
+    width: 20px;
+    height: 20px;
+}
+
+/* Estilos base (ya definidos) */
+
+@media (max-width: 1024px) {
+    .band-info, .tour-dates, .contact {
+        padding: 50px 50px;
+    }
+    .dates {
+        
+        justify-content: center;
+    }
+    .event {
+        width: 80%;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Ajustes en el menú de navegación */
+    nav ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+
+    /* Ajustes en el banner */
+    .banner {
+        height: 60vh;
+        padding: 20px;
+        text-align: center;
+    }
+    
+    /* Sección de banda */
+    .playeras {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Tour dates */
+    .tour-dates .dates {
+        flex-direction: column;
+        align-items: center;
+    }
+        
+
+
+    /* Sección de contacto */
+    .contact-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .contact-info {
+        padding-right: 0;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Ajustes para dispositivos móviles */
+    header {
+        text-align: center;
+    }
+    .banner {
+        height: 50vh;
+    }
+    .band-info, .tour-dates, .contact {
+        padding: 30px;
+    }
+    .dates {
+        width: 100%;
+    }
+    .event {
+        width: 100%;
+    }
+    form {
+        width: 100%;
+    }
+}
