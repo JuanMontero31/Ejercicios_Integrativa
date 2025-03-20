@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Numero Aleatorio</title>
+    </head>
+    <style>
+        body {
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        h3 {
+            color: #01fe5a;
+        }
+
+        button{
+            background: #000;
+            color: #fff;
+            border-radius: 5px;
+            padding: 10px;
+        }
+
+        button:hover {
+            background: #fff;
+            color: #000;
+            border:1px solid #000;
+        }
+
+        input{
+            background: #9bd1f5;
+            padding: 5px;
+            border: 1px solid #000;
+            border-radius: 2px;
+            width: 100px    ;
+        }
+    </style>
+    <body>
+
+    <h1>Adivina el número</h1><br>
+    <p>Ingresa el numero (1-100) que creas que es el que la computadora esta "pensando" y adivinalo en 10 intentos</p><br><br>
+    <h3 id="intentos"></h3><br>
+    <p id="indicacion"></p>
+
+    <form>
+        <label>Ingresa un número</label><br><br>
+        <input type="number" id="num1" name="num1" required><br><br>
+        <button type="button" onclick="match()">probar</button>
+    </form><br><br>
+
+    <p id="pista"></p>
+
+    <script>
+        var num_al=null;
+        var intentos=10;
+
+        window.onload = function() {
+            num_al= Math.floor(Math.random() * 100) + 1;
+            document.getElementById("intentos").textContent = "Numero de Intentos = " + intentos;
+        }
+
+        function match(){
+            let n = parseInt(document.getElementById("num1").value);
+
+            if (n == num_al) {
+                alert("¡Correcto! Adivinaste el número.");
+                window.location.href = "index.html";
+            } else if (n<num_al) {
+                document.getElementById("pista").textContent = "El número es mayor, Intentalo de nuevo.";
+                intentos--;
+                document.getElementById("intentos").textContent = "Numero de Intentos = " + intentos;
+            }else{
+                document.getElementById("pista").textContent = "El número es menor, Intentalo de nuevo";
+                intentos--;
+                document.getElementById("intentos").textContent = "Numero de Intentos = " + intentos;
+            }
+
+            if (intentos == 0){
+                alert("PERDISTE ya no tienes intentos");
+                window.location.href = "index.html";
+            }
+        }
+    </script>
+    </body>
+</html>
