@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Juego de Dados</title>
+    <style>
+        body {
+            font-family: 'Lucida Sans', sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        header{
+            background: #ff1212;
+            padding: 20px;
+            color: #d4fe01;
+            font-weight: bold;
+            font-size: 50px;
+        }
+
+        .instruccion{
+            font-weight: bold;
+        }
+
+        img {
+            width: 150px;
+            height: 150px;
+        }
+        .saldo{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 80px;
+            margin-bottom: 50px;
+        }
+        h3 {
+            display: inline-block;
+            background: #d2ec12;
+            padding: 10px;
+            border-radius: 5px;
+            width: auto;
+            height: 30px;
+            text-align: center;
+            border: 5px solid #fa0019;
+
+        }
+        button {
+            border-radius: 5px;
+            padding: 40px;
+            cursor: pointer;
+            margin: 10px;
+            font-size: 35px;
+            font-weight: bold;
+        }
+        button:hover {
+            background: #fff;
+            color: #000;
+        }
+        .b1{
+            background: #15fa00;
+        }
+        .b2{
+            background: #e500fa;
+        }
+        .b3{
+            background: #0068fa;
+        }
+        .b4{
+            background: #fa0085;
+        }
+        .b5{
+            background: #fac800;
+        }
+        .b6{
+            background: #fa0000;
+        }
+        input {
+            background: #9bd1f5;
+            padding: 5px;
+            border: 1px solid #000;
+            border-radius: 2px;
+            width: 100px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>BIENVENIDO AL JUEGO</header>
+    <p class="instruccion">Ingresa la cantidad de dinero a apostar y el número del dado</p>
+    
+    <div class="saldo">
+        <img src="dado.gif" alt="">
+        <h3 id="dinero">Saldo: $50</h3>
+    </div>
+
+    <form>
+        <label>Cantidad a apostar "$"</label><br>
+        <input type="number" id="num" min="1" required><br><br>
+        <label>Selecciona un número</label><br>
+
+        <div>
+            <button class="b1" type="button" onclick="apuesta(1)">1</button>
+            <button class="b2" type="button" onclick="apuesta(2)">2</button>
+            <button class="b3" type="button" onclick="apuesta(3)">3</button>
+            <button class="b4" type="button" onclick="apuesta(4)">4</button>
+            <button class="b5" type="button" onclick="apuesta(5)">5</button>
+            <button class="b6" type="button" onclick="apuesta(6)">6</button>
+        </div>
+    </form>
+
+    <p id="resultado"></p>
+
+    <script>
+        var dinero = 50;
+
+        function actualizarSaldo() {
+            document.getElementById("dinero").textContent = "Saldo: $" + dinero;
+        }
+
+        function apuesta(numeroElegido) {
+            var apuesta = parseInt(document.getElementById("num").value);
+            
+            if (isNaN(apuesta) || apuesta <= 0) {
+                alert("Ingresa una cantidad");
+                return;
+            }
+
+            if (apuesta > dinero) {
+                alert("No tienes suficiente saldo para esta apuesta.");
+                return;
+            }
+
+            var num_al = Math.floor(Math.random() * 6) + 1;
+
+            if (num_al === numeroElegido) {
+                dinero += apuesta * 2;
+                alert("¡Ganaste! El dado cayó en: " + num_al);
+            } else {
+                dinero -= apuesta;
+                alert("Perdiste. El dado cayó en: " + num_al);
+            }
+
+            actualizarSaldo();
+
+            if (dinero <= 0) {
+                alert("PERDISTE todo tu dinero");
+                window.location.href = "index.html";
+            }else if (dinero >= 200) {
+                alert("FELICIDADES has ganado $200");
+                window.location.href = "index.html";
+            }
+        }
+
+        window.onload = actualizarSaldo;
+    </script>
+
+</body>
+</html>
