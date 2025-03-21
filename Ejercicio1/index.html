@@ -8,6 +8,9 @@
 </head>
 <body>
     <header>
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <img src="menu.png" alt="Menú" class="menu-icon">
+        </div>
         <nav>
             <ul>
                 <li><a href="#home">Home</a></li>
@@ -68,7 +71,8 @@
                 <td>October<span class="soldout-label">SOLD OUT</span></td>
             </tr>
             <tr>
-                <td>November</td>
+                <td>November<span class="number">3</span></td>
+                
             </tr>
         </table>
 
@@ -122,6 +126,11 @@
         </center>
         <p>Lorem ipsum dolor sit amet</p>
     </footer>
-
+    <script>
+        function toggleMenu() {
+            var menu = document.querySelector("nav ul");
+            menu.style.display = (menu.style.display === "block") ? "none" : "block";
+        }
+        </script>
 </body>
 </html>

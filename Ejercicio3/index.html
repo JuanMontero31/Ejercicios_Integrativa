@@ -43,11 +43,9 @@
     <h3 id="intentos"></h3><br>
     <p id="indicacion"></p>
 
-    <form>
         <label>Ingresa un número</label><br><br>
         <input type="number" id="num1" name="num1" required><br><br>
-        <button type="button" onclick="match()">probar</button>
-    </form><br><br>
+        <button type="button" onclick="match()">probar</button><br><br>
 
     <p id="pista"></p>
 
@@ -60,25 +58,41 @@
             document.getElementById("intentos").textContent = "Numero de Intentos = " + intentos;
         }
 
-        function match(){
-            let n = parseInt(document.getElementById("num1").value);
+        function match() {
+            let input = document.getElementById("num1");
+            let n = parseInt(input.value);
 
-            if (n == num_al) {
-                alert("¡Correcto! Adivinaste el número.");
-                window.location.href = "index.html";
-            } else if (n<num_al) {
-                document.getElementById("pista").textContent = "El número es mayor, Intentalo de nuevo.";
-                intentos--;
-                document.getElementById("intentos").textContent = "Numero de Intentos = " + intentos;
-            }else{
-                document.getElementById("pista").textContent = "El número es menor, Intentalo de nuevo";
-                intentos--;
-                document.getElementById("intentos").textContent = "Numero de Intentos = " + intentos;
+            if (isNaN(n)) {
+                alert("Por favor, ingresa un número.");
+                return;
             }
 
-            if (intentos == 0){
-                alert("PERDISTE ya no tienes intentos");
-                window.location.href = "index.html";
+            if (n < 1 || n > 100) {
+                alert("El número debe estar entre 1 y 100.");
+                input.value = "";
+                return;
+            }
+
+            if (n === num_al) {
+                alert("¡Correcto! Adivinaste el número.");
+                window.location.reload();
+            } else {
+                intentos--;
+                document.getElementById("intentos").textContent = "Número de Intentos: " + intentos;
+
+                if (n < num_al) {
+                    document.getElementById("pista").textContent = "El número es mayor, inténtalo de nuevo.";
+                } else {
+                    document.getElementById("pista").textContent = "El número es menor, inténtalo de nuevo.";
+                }
+
+                if (intentos === 0) {
+                    alert("¡PERDISTE! Ya no tienes intentos. El número era: " + num_al);
+                    window.location.reload();
+                }
+
+                // Limpiar el input
+                input.value = "";
             }
         }
     </script>
