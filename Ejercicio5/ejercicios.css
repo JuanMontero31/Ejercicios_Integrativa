@@ -1,0 +1,84 @@
+/*USO DE LA PROPIEDAD justify-content:
+flex-start: Alinea elementos al lado izquierdo del contenedor.
+flex-end: Alinea elementos al lado derecho del contenedor.
+center: Alinea elementos en el centro del contenedor.
+space-between: Muestra elementos con la misma distancia entre ellos.
+space-around: Muestra elementos con la misma separación alrededor de ellos.*/
+
+
+/*Ejercicio 1 movimiento de la rana hacia la derecha*/
+#pond {
+    display: flex;
+    justify-content: flex-end;
+}
+
+/*Ejercicio 2 movimiento de las ranas hacia el centro*/
+#pond {
+    display: flex;
+    justify-content:center;
+}
+
+/*Ejercicio 3 separación de las ranas "around"*/
+#pond {
+    display: flex;
+    justify-content: space-around;
+}
+
+/*Ejercicio 4 separación de ranas "between"*/
+#pond {
+    display: flex;
+    justify-content: space-between;
+}
+
+/*USO DE LA PROPIEDAD align-items:
+flex-start: Alinea elementos a la parte superior del contenedor.
+flex-end: Alinea elementos a la parte inferior del contenedor.
+center: Alinea elementos en el centro (verticalmente hablando) del contenedor.
+baseline: Muestra elementos en la línea base del contenedor
+stretch: Elementos se estiran para ajustarse al contenedor.*/
+
+
+/*Ejercicio 5 movimiento de las ranas hacia abajo*/
+#pond {
+    display: flex;
+    align-items: flex-end;
+}
+
+ /*Ejercicio 6 movimiento de la rana al centro de la pantalla*/
+#pond {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*Ejercicio 7 movimiento de las ranas hacia el inferior y espaciadas*/
+#pond {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+}
+
+/*USO DE LA PROPIEDAD flex-direction:
+row: Elementos son colocados en la misma dirección del texto.
+row-reverse: Elementos son colocados en la dirección opuesta al texto.
+column: Elementos se colocan de arriba hacia abajo.
+column-reverse: Elementos se colocan de abajo hacia arriba.*/
+
+/*Ejercicio 8 movimiento de las ranas alineadas de manera opuesta*/
+#pond {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+/*Ejercicio 9 movimiento de las ranas en columnas*/
+#pond {
+    display: flex;
+    flex-direction: column;
+}
+
+/*Ejercicio 10 movimiento de las ranas hacia el final y en dirección opuesta*/
+#pond {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+}
