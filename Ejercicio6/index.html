@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datos de Redalyc</title>
+</head>
+<style>
+    body {
+        font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+    }
+
+    pre{
+        text-align: left;
+        background: #a3ffc3;
+        padding-left: 50px;
+    }
+
+
+</style>
+<body>
+    <h2>Datos obtenidos de Redalyc</h2>
+    <p><strong>Número de registros:</strong> <span id="num-registros"></span></p>
+    
+    <p><strong>Identificador:</strong> <span id="primer-id"></span></p>
+    <p><strong>Datos:</strong> <pre id="primer-datos"></pre></p>
+
+
+    <script>
+        fetch('http://api.redalyc.org/search/country(Brasil),page(10),sizePage(50)/output(json)/download(yes)/token(a3FvS2ZMNGRodS9kZ1EzUVlSSDBsdz09)')
+            .then(response => response.json())  // Convertir a JSON
+            .then(json => {
+                // Accediendo al número de registros
+                document.getElementById("num-registros").textContent = json.searchRetrieveResponse.numberOfRecords;
+                
+                // Accediendo al primer registro
+                const primerRegistro = json.searchRetrieveResponse.records[0];
+                document.getElementById("primer-id").textContent = primerRegistro.recordIdentifier;
+                document.getElementById("primer-datos").textContent = JSON.stringify(primerRegistro.recordData, null, 2);
+            })
+            .catch(err => {
+                console.log('Solicitud fallida', err);
+                document.body.innerHTML += "<p>Error al obtener los datos.</p>";
+            }); // Capturar errores
+
+    </script>
+</body>
+</html>
