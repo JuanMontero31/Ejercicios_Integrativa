@@ -1,0 +1,47 @@
+body {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background-color: #f7f7f7;
+}
+
+h2 {
+    color: #000000;
+    margin-top: 20px;
+}
+
+#contenedor-tarjetas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.tarjeta {
+    background-color: #d3f4f1;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 450px;
+    max-width: 100%;
+    margin: 10px;
+    text-align:left; 
+    box-sizing: border-box;
+    transition: transform 0.3s ease;
+}
+
+.tarjeta:hover {
+    transform: scale(1.03);
+}
+
+.tarjeta p {
+    font-size: 16px;
+    color: #4f4e4e;
+    margin: 8px 0;
+}
+
+.tarjeta strong {
+    color: #054d63;
+}
