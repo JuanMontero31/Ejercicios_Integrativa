@@ -10,9 +10,43 @@
 
 <body>
     <h2>Datos Redalyc</h2>
+
+    <div>
+        <input type="text" id="tema" placeholder="Ingrese un tema">
+        <input type="text" id="date" placeholder="Ingrese un año">
+        <label for="pais">País:</label>
+        <select id="pais">
+            <option value="" disabled selected>Selecciona un país...</option>
+            <option value="Canadá">Canadá</option>
+            <option value="México">México</option>
+            <option value="EU">EU</option>
+            <option value="Brasil">Brasil</option>
+            <option value="Alemania">Alemania</option>
+            <option value="Colombia">Colombia</option>
+            <option value="Ecuador">Ecuador</option>
+            <option value="Perú">Perú</option>
+            <option value="Argentina">Argentina</option>
+            <option value="CostaRica">Costa Rica</option>
+            <option value="Uruguay">Uruguay</option>
+            <option value="Chile">Chile</option>
+            <option value="España">España</option>
+            <option value="Portugal">Portugal</option>
+            <option value="Italia">Italia</option>
+            <option value="Turquía">Turquía</option>
+            <option value="India">India</option>
+            <option value="Polonia">Polonia</option>
+            <option value="Suiza">Suiza</option>
+            <option value="Dinamarca">Dinamarca</option>
+        </select>
+
+        <button onclick="buscar('es')" class="lang">ES</button>
+        <button onclick="buscar('en')" class="lang">EN</button>
+
+    </div>
+
     <div id="contenedor-tarjetas"></div>
 </body>
-
 </html>
+
 
 

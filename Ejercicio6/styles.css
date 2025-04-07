@@ -23,13 +23,17 @@ h2 {
     background-color: #d3f4f1;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     width: 450px;
     max-width: 100%;
+    height: auto;
     margin: 10px;
     text-align:left; 
     box-sizing: border-box;
     transition: transform 0.3s ease;
+    overflow: hidden;
+    word-wrap: break-word;
+
 }
 
 .tarjeta:hover {
@@ -44,4 +48,51 @@ h2 {
 
 .tarjeta strong {
     color: #054d63;
+}
+
+input{
+    width: 200px;
+    padding: 10px;
+    border-radius: 10px;
+    background: #d9f5f5;
+    border: 2px solid #000;
+}
+
+.lang{
+    margin-left: 10px;
+    background: #074b88;
+    border-radius: 5px;
+    padding: 10px;
+    font-weight: bold;
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+}
+
+.lang:hover{
+    background: #6cb6ee;
+    color:#000;
+    transform: scale(1.03);
+}
+
+label{
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+select{
+    width: 200px;
+    padding: 10px;
+    border-radius: 10px;
+    background: #d9f5f5;
+    border: 2px solid #000;
+}
+
+option{
+    width: 2000px;
+    padding: 10px;
+    border-radius: 10px;
+    background: #d9f5f5;
+    border: 2px solid #000;
 }

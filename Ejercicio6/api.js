@@ -1,5 +1,16 @@
+function buscar(idioma) {
+    const tema = document.getElementById("tema").value.trim();
+    const date = document.getElementById("date").value.trim();
+    const pais = document.getElementById("pais").value;
 
-fetch('http://api.redalyc.org/search/country(Brasil),page(10),sizePage(10)/output(json)/download(yes)/token(a3FvS2ZMNGRodS9kZ1EzUVlSSDBsdz09)')
+    if (!tema || !date || !pais) {
+        alert("Por favor ingresa un tema, un año y un país");
+        return;
+    }
+
+    const url = `http://api.redalyc.org/search/subject(${tema}),date(${date}),country(${pais}),language(${idioma}),page(10),sizePage(10)/output(json)/download(yes)/token(a3FvS2ZMNGRodS9kZ1EzUVlSSDBsdz09)`;
+
+    fetch(url)
     .then(response => {
         if (!response.ok) {
             throw new Error(`Error en la solicitud: ${response.status}`);
@@ -7,7 +18,6 @@ fetch('http://api.redalyc.org/search/country(Brasil),page(10),sizePage(10)/outpu
         return response.json();
     })  
     .then(json => {        
-        // Obtener el contenedor donde agregaremos las tarjetas
         const contenedorTarjetas = document.getElementById("contenedor-tarjetas");
         contenedorTarjetas.innerHTML = "";
 
@@ -30,18 +40,21 @@ fetch('http://api.redalyc.org/search/country(Brasil),page(10),sizePage(10)/outpu
             // Crear contenido de la tarjeta
             let contenido = "";
             Object.entries(registro.recordData).forEach(([clave, valor]) => {
-                // Solo mostrar claves mapeadas y sus valores
+                // Solo mostrar claves mapeadas y valores válidos
                 if (clavesMapeadas[clave]) {
-                    if (clave === "dc_relation" && valor) {
-                        // Diseño para el enlace
-                        contenido += `<p><strong>${clavesMapeadas[clave]}:</strong> <a href="${valor}" target="_blank">${valor}</a></p>`;
-                    } else if (clave === "dc_title" && valor){
-                        // Diseño para el titulo
-                        contenido += `<center><h3>${valor}</h3></center><br>`;
-                    }
-                    else {
-                        // Si no es un enlace, simplemente mostramos el valor
-                        contenido += `<p><strong>${clavesMapeadas[clave]}:</strong> ${valor}</p>`;
+                    
+                    if (valor !== null && valor !== undefined) {
+                        let valorTexto = Array.isArray(valor) ? valor.join(", ") : String(valor).trim();
+                        
+                        if (valorTexto.toLowerCase() !== "unknown" && valorTexto.toLowerCase() !== "null") {
+                            if (clave === "dc_relation") {
+                                contenido += `<p><strong>${clavesMapeadas[clave]}:</strong> <a href="${valorTexto}" target="_blank">${valorTexto}</a></p>`;
+                            } else if (clave === "dc_title") {
+                                contenido += `<center><h3>${valorTexto}</h3></center><br>`;
+                            } else {
+                                contenido += `<p><strong>${clavesMapeadas[clave]}:</strong> ${valorTexto}</p>`;
+                            }
+                        }
                     }
                 }
             });
@@ -55,5 +68,6 @@ fetch('http://api.redalyc.org/search/country(Brasil),page(10),sizePage(10)/outpu
 })
 .catch(err => {
     console.error('Solicitud fallida', err);
-    document.getElementById("contenedor-tarjetas").innerHTML = "<p>Error al obtener los datos.</p>";
+    document.getElementById("contenedor-tarjetas").innerHTML = "<p>Error al obtener los datos o no existen registros.</p>";
 });
+}
