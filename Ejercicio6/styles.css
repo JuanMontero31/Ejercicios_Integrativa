@@ -58,6 +58,25 @@ input{
     border: 2px solid #000;
 }
 
+.busqueda{
+    margin-bottom: 10px;
+    padding: 20px;
+}
+.buscar{
+    background: #fff;
+}
+
+.lupa{
+    font-size: 20px;
+    background: transparent;
+    border: none;
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+.lupa:hover{
+    transform: scale(1.20);
+}
+
 .lang{
     margin-left: 10px;
     background: #074b88;
@@ -95,4 +114,16 @@ option{
     border-radius: 10px;
     background: #d9f5f5;
     border: 2px solid #000;
+}
+
+.ver{
+    border: none;
+    background: transparent;
+    color: red;
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+.ver:hover{
+    transform: scale(1.05);
+    color: #ffb700;
 }
