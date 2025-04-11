@@ -59,7 +59,7 @@ function buscar(idioma = "") {
                                 const textoCorto = valorTexto.substring(0, 100);
                                 const idDescripcion = `desc-${idCounter++}`;
                             
-                                // Escapar las comillas y backticks que pueden romper el HTML
+                                // Escapar las comillas que pueden romper el HTML
                                 const textoSeguro = valorTexto.replace(/\\/g, '\\\\').replace(/`/g, '\\`').replace(/"/g, '&quot;');
                             
                                 if (valorTexto.length > 100) {
@@ -78,10 +78,7 @@ function buscar(idioma = "") {
                                         </p>
                                     `;
                                 }
-                            }
-                            
-                            
-                            else {
+                            }else {
                                 contenido += `<p><strong>${clavesMapeadas[clave]}:</strong> ${valorTexto}</p>`;
                             }
                         }
